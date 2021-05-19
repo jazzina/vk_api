@@ -12,7 +12,7 @@ import random
 import re
 import threading
 import time
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 import requests
 import six
@@ -447,7 +447,7 @@ class VkApi(object):
             parsed_query = parse_qs(parsed_url.query)
 
             if 'authorize_url' in parsed_query:
-                parsed_url = urlparse(parsed_query['authorize_url'][0])
+                parsed_url = urlparse(unquote(parsed_query['authorize_url'][0]))
 
             parsed_query = parse_qs(parsed_url.fragment)
 
