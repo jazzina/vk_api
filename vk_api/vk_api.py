@@ -433,6 +433,13 @@ class VkApi(object):
             }
         )
 
+        if response.status_code == 401:
+            if "application is disabled" in response.text:
+                # application disabled
+                raise AuthError("application is disabled")
+            if "client_id" in response.text:
+                raise AuthError('Unknown API auth error: wrong client_id')
+
         if 'act=blocked' in response.url:
             raise AccountBlocked('Account is blocked')
 
