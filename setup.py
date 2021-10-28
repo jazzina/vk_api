@@ -11,7 +11,7 @@ from setuptools import setup
 """
 
 
-version = '11.9.3.1'
+version = '11.9.5'
 
 with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
@@ -38,7 +38,7 @@ setup(
     license='Apache License, Version 2.0, see LICENSE file',
 
     packages=['vk_api', 'jconfig'],
-    install_requires=['requests', 'enum34;python_version<"3.4"', 'six'],
+    install_requires=['requests'],
     extras_require={
         'vkstreaming': ['websocket-client'],
         'vkaudio': ['beautifulsoup4'],
